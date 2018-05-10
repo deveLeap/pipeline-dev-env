@@ -3,7 +3,7 @@ services:
   jenkins:
     image: jenkins/jenkins
     ports:
-      - target: 80
+      - target: 8080
         published: 8080
 
   git:
