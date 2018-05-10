@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  jenkins:
+    image: jenkins/jenkins
+    ports:
+      - target: 80
+        published: 8080
+
+  git:
+    image: jkarlos/git-server-docker
+    ports:
+      - target: 22
+        published: 2222
+    volumes:
+      - type: bind
+        source: ./git-server/keys
+        target: /git-server/keys
+      - type: bind
+        source: ./git-server/repos
+        target: /git-server/repos
