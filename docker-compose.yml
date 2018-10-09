@@ -24,3 +24,13 @@ services:
       - type: bind
         source: ./git-server/repos
         target: /git-server/repos
+
+  nexus:
+    image: sonatype/nexus3
+    ports:
+      - target: 8081
+        published: 8081
+    volumes:
+      - type: bind
+        source: ./nexus-data
+        target: /nexus-data
