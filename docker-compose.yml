@@ -2,6 +2,7 @@ version: '3.3'
 services:
   jenkins:
     image: jenkins/jenkins:lts
+    user: '1000:999'
     ports:
       - target: 8080
         published: 8080
@@ -11,6 +12,9 @@ services:
       - type: bind
         source: ./jenkins_home
         target: /var/jenkins_home
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
 
   git:
     image: jkarlos/git-server-docker
